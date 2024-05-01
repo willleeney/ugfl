@@ -1,0 +1,46 @@
+experiment_name: 'base'
+debug: False
+gpu_id: 0
+random_seed: 42
+n_clients: 1
+save_path: "models/"
+result_path: "results/"
+print_config: False
+validation_round: 5
+
+dataset:
+  print_dataset_stats: False
+  name: 'Cora'
+  partition: "disjoint"
+  ratio_keep_features: 1.0
+  n_nodes: ???
+  n_features: ???
+  n_clusters: ???
+  ratio_train: 0.7
+  ratio_test: 0.2
+  max_nodes_in_batch: 4000
+  batch_partition: 'none'
+
+model:
+  name: ???
+  n_clusters: ???
+  n_features: ???
+  total_epochs: 10000
+  n_rounds: 250
+  n_epochs_per_round: 5
+  print_module_params: True
+
+  learning_rate: 0.0001
+  weight_decay: 0.
+  architecture_size: 64
+  dropout_rate: 0.5
+
+  classify_aggr: True
+  bias_aggr: True
+  gnn_aggr: True
+
+
+hpo:
+  analysis: False
+  validation_metrics: ['self_f1']
+  n_trials_hyperopt: 400

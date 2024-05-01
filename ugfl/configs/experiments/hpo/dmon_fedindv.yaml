@@ -1,0 +1,49 @@
+debug: False
+random_seed: 42
+gpu_id: 0
+n_clients: 5
+save_path: "models/"
+print_config: False
+result_path: "results/fedindv/"
+
+dataset:
+  name: 'Cora'
+  partition: "disjoint"
+  ratio_keep_features: 1.0
+  n_nodes: ???
+  n_features: ???
+  n_clusters: ???
+  ratio_train: 0.7
+  ratio_test: 0.2
+
+model:
+  name: 'dmon'
+  n_clusters: ???
+  n_features: ???
+  n_rounds: 250
+  print_module_params: False
+  n_epochs_per_round: 1
+  
+  classify_aggr: False
+  bias_aggr: False
+  gnn_aggr: False
+
+  learning_rate: [ 0.001, 0.005, 0.0001, 0.0005 ]
+  weight_decay: [ 0., 0.1, 0.001, 0.0001 ]
+  dropout_rate: [0., 0.25, 0.5]
+  cluster_size_regularization: [0.3, 0.5, 0.8, 1.0, 1.5, 2.0]
+
+  orthogonality_regularization: 0.
+  architecture_size: 64
+  act: 'selu'
+  adj_graph: 'graph'
+
+
+hpo:
+  analysis: True
+  multi_objective_study: True
+  sampler: 'tpe'
+  validation_metrics: ['f1_self_val', 'nmi_self_val']
+  optimisation_directions: ['maximize', 'maximize']
+  n_trials_hyperopt: 100
+  max_n_pruned: 20

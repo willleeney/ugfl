@@ -1,0 +1,8 @@
+model:
+  name: 'dmon'
+  learning_rate: 0.0001
+  weight_decay: 0.
+  architecture_size: 64
+  cluster_size_regularization: 0.3
+  orthogonality_regularization: 1.0
+  dropout_rate: 0.5

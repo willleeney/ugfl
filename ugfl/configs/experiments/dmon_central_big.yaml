@@ -1,0 +1,39 @@
+debug: False
+gpu_id: 0
+random_seed: 42
+n_clients: 1
+save_path: "models/"
+print_config: False
+
+dataset:
+  name: 'Photo'
+  partition: "disjoint"
+  n_nodes: ???
+  n_features: ???
+  n_clusters: ???
+  ratio_train: 0.7
+  ratio_test: 0.2
+  max_nodes_in_batch: 2000
+  batch_partition: "neighbour"
+
+
+model:
+  name: 'dmon'
+  n_clusters: ???
+  n_features: ???
+  n_rounds: 500
+  n_epochs_per_round: 5
+  print_module_params: False
+
+  classify_aggr: False
+  bias_aggr: False
+  gnn_aggr: False
+
+  learning_rate: 0.001
+  weight_decay: 0.
+  architecture_size: 512
+  dropout_rate: 0.5
+  cluster_size_regularization: 1.
+  orthogonality_regularization: 0.
+  act: 'selu'
+

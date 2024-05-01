@@ -1,0 +1,12 @@
+python-decouple
+omegaconf
+more_itertools
+networkx
+pymetis
+rich
+optuna
+wandb
+plotly
+umap-learn
+matplotlib
+SciencePlots

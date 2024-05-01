@@ -1,0 +1,45 @@
+debug: False
+random_seed: [42, 214]
+n_clients: 5
+save_path: "models/"
+print_config: False
+
+dataset:
+  print_dataset_stats: False
+  name: 'Cora'
+  partition: "random"
+  n_nodes: ???
+  n_features: ???
+  n_clusters: ???
+  ratio_train: 0.7
+  ratio_test: 0.2
+
+model:
+  name: 'dmon'
+  n_clusters: ???
+  n_features: ???
+  n_rounds: 10
+  n_epochs_per_round: 5
+  print_module_params: False
+
+  classify_aggr: False
+  bias_aggr: False
+  gnn_aggr: False
+
+  learning_rate: [0.001, 0.005]
+  weight_decay: 0.
+  architecture_size: 64
+  dropout_rate: 0.5
+  cluster_size_regularization: 1.0
+  orthogonality_regularization: 0.
+  act: 'selu'
+
+
+hpo:
+  analysis: True
+  multi_objective_study: True
+  sampler: 'tpe' # 'tpe'
+  validation_metrics: ['f1_self_val', 'nmi_self_val']
+  optimisation_directions: ['maximize', 'maximize']
+  n_trials_hyperopt: 4
+  max_n_pruned: 20
